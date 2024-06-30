@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
         fontSize: 48,
         marginBottom: 20,
     },
+    button: {
+        marginTop: 10,
+    },
 });
 
 export default HomeScreen;
