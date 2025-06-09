@@ -1,10 +1,27 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../screens/HomeScreen.tsx';
+import HomeScreen from '../screens/HomeScreen';
+import ThemeScreen from '../screens/ThemeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 export type RootStackParamList = {
     Home: undefined;
+    Theme: {
+        selectedPalette: number;
+        onSelectPalette: (index: number) => void;
+    };
+    Settings: {
+        workDuration: number;
+        shortBreak: number;
+        longBreak: number;
+        paletteIdx: number;
+        onUpdateSettings: (settings: {
+            workDuration: number;
+            shortBreak: number;
+            longBreak: number;
+        }) => void;
+    };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -13,7 +30,21 @@ const AppNavigator = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Theme"
+                    component={ThemeScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Settings"
+                    component={SettingsScreen}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
