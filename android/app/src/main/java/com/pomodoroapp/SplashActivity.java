@@ -1,4 +1,4 @@
-package com.pomodoroapp;
+package com.pomodoroapp.productivity;
 
 import android.content.Intent;
 import android.os.Bundle;

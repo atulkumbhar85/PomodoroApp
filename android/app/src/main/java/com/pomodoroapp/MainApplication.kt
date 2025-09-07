@@ -1,4 +1,4 @@
-package com.pomodoroapp
+package com.pomodoroapp.productivity;
 
 import android.app.Application
 import com.facebook.react.PackageList

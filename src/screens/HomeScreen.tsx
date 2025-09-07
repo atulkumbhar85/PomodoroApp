@@ -99,7 +99,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
 
     if (session === WORK) {
       // Show session end notification and play sound
-      await NotificationService.showSessionEndNotification(session);
+      NotificationService.showSessionEndNotification(session);
       await SoundService.vibrateSessionEnd();
 
       const newPomodoros = pomodoros + 1;
@@ -112,22 +112,22 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
         setSession(LONG_BREAK);
         setSeconds(longBreak);
         // Show break start notification and play sound
-        await NotificationService.showBreakStartNotification('Long Break');
+        NotificationService.showBreakStartNotification('Long Break');
         await SoundService.vibrateBreakStart();
       } else {
         setSession(SHORT_BREAK);
         setSeconds(shortBreak);
         // Show break start notification and play sound
-        await NotificationService.showBreakStartNotification('Short Break');
+        NotificationService.showBreakStartNotification('Short Break');
         await SoundService.vibrateBreakStart();
       }
     } else {
       // Show break end notification and play sound
-      await NotificationService.showBreakEndNotification();
+      NotificationService.showBreakEndNotification();
       setSession(WORK);
       setSeconds(workDuration);
       // Show session start notification and play sound
-      await NotificationService.showSessionStartNotification(WORK);
+      NotificationService.showSessionStartNotification(WORK);
       await SoundService.vibrateWorkStart();
     }
   };
